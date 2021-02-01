@@ -11,5 +11,4 @@ db.bank_account.deletemany(
         first_name: "Sarah",
         last_name: "Doe",
         holding: 1337
-    }
-)
+    });
