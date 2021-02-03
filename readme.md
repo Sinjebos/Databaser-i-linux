@@ -1,8 +1,8 @@
 ## Frågor 
 # Var hittar man log-filerna för databaserna? (MySQL / MariaDB, och MongoDB)
 
-- mysql: /usr/share/man/man3/log.3.gz
-- MongoDB: 
+- mysql: /var/log/mysql/
+- MongoDB: /var/log/mongodb/mongod.log
 
 # Vad är skillnaden mellan en SQL databas som MySQL / MariaDB och en NoSQL databas som MongoDB?
 
