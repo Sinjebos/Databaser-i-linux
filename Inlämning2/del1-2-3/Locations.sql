@@ -2,6 +2,8 @@ CREATE DATABASE inlamning2 charset=utf8
 
 use inlamning2
 
+
+// lägga in address och land för sedan koppla rätt information till rätt person
 CREATE TABLE locations (
     id INT PRIMARY KEY AUTO_INCREMENT,
     address VARCHAR(200),
@@ -13,6 +15,8 @@ INSERT INTO locations (address, country)  VALUES ("Asteroid road 5", "US");
 INSERT INTO locations (address, country)  VALUES ("Vimmerbygatan 20", "SE");
 INSERT INTO locations (address, country)  VALUES ("Comet road 41", "US");
 
+
+// table för skapa karaktärer och referera till locations id
 Create TABLE bankaccount(
     id INT PRIMARY KEY AUTO_INCREMENT,
     first_name VARCHAR(255),
@@ -21,12 +25,14 @@ Create TABLE bankaccount(
 );
 
 
+// refererar till bankaccount + locations för koppla ihop namn med address och land
 CREATE TABLE combine(
     person1 INT,
     address1 INT,
     FOREIGN KEY (person1) REFERENCES bankaccount(id),
     FOREIGN KEY (address1) REFERENCES locations(id)
 );
+
 
 INSERT INTO combine(person1, address1) VALUES (1, 1);
 INSERT INTO combine(person1, address1) VALUES (2, 2);
