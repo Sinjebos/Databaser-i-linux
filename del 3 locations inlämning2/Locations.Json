@@ -1,0 +1,71 @@
+use inlamning2;
+
+db.locations.insertMany([
+    {
+        "country": "SE",
+        "Address": "Vimmerbygatan 20",
+        person:
+        {
+            $ref:  "bankaccount",
+            $id: ObjectId("6023d6edffb5bb2cb39b9bb2")
+        }
+    },
+    {
+        "country": "US",
+        "Address": "Asteroid road 5",
+        person:
+        {
+            $ref: "bankaccount",
+            $id: ObjectId("6023d6edffb5bb2cb39b9bb1")
+        },
+    },
+    {
+        "country": "US",
+        "Address": "Comet road 41",
+        person:
+        {
+            $ref: "bankaccount",
+            $id: ObjectId("6023d6edffb5bb2cb39b9bb3")
+        },
+    },
+    {
+        "country": "SE",
+        "Address": "Brunnsgatan 7",
+        person:
+        {
+            $ref: "bankaccount",
+            $id: ObjectId("6023d6edffb5bb2cb39b9bb0")
+        },
+    }
+])
+
+db.bankaccount.insertMany([
+    {
+        "firstname": "Corbin",
+        "lastname": "Hauck"
+    },
+    {
+        "firstname": "Vanya",
+        "lastname": "Worsell"
+    },
+    {
+        "firstname": "Eldon",
+        "lastname": "McCartan"
+    },
+    {
+        "firstname": "Ingunna",
+        "lastname": "Castellucci"
+    },
+])
+## sebastian löste
+db.locations.aggregate([
+    {
+        $lookup:
+        {
+            from: "bankaccount",
+            localField: "person.$id",
+            foreignField: "_id",
+            as: "person"
+        },
+    }
+])
