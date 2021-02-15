@@ -57,7 +57,7 @@ db.bankaccount.insertMany([
         "lastname": "Castellucci"
     },
 ])
-## sebastian löste
+
 db.locations.aggregate([
     {
         $lookup:
